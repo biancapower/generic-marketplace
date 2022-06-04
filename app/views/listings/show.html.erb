@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= button_to "Buy me!", place_order_path %>
+
 <p>
   <strong>Status:</strong>
   <%= @listing.sold ? "Not for sale" : "For sale" %>
