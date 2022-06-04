@@ -35,6 +35,14 @@
   <%= @listing.category_id %>
 </p>
 
+<div>
+  <% if @listing.picture.attached? %>
+    <%= image_tag @listing.picture, alt: @listing.title %>
+  <% else%>
+    <%= image_tag "http://placekitten.com/200/300", alt: "kitty cat" %>
+  <% end %>
+</div>
+
 <% if current_user && current_user.id == @listing.user_id %>
     <%= link_to "Edit", edit_listing_path(@listing) %> |
     <%= link_to "Delete", @listing, method: :delete, data: {confirm: "Are you sure?"} %> |
