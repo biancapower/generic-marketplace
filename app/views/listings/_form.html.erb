@@ -22,8 +22,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :condition %>
+    <%= form.label :condition, style: "display: block" %>
     <%= form.number_field :condition %>
+    <% @conditions.each do |option| %>
+      <%= form.label :condition, format_condition(option), style: "display: block" %>
+      <%= form.radio_button :condition, option %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -43,7 +47,7 @@
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
+    <%= form.select :category_id, @categories.map {|c| [c.name, c.id]} %>
   </div>
 
   <div class="actions">
