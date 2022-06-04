@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= button_to "Buy me!", place_order_path %>
+<% if current_user && !@listing.sold %>
+  <%= button_to "Buy me!", place_order_path %>
+<% else %>
+  <p>NOT FOR SALE</p>
+<% end %>
 
 <p>
   <strong>Status:</strong>
