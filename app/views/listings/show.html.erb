@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Status:</strong>
+  <%= @listing.sold ? "Not for sale" : "For sale" %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @listing.title %>
 </p>
@@ -12,27 +17,22 @@
 
 <p>
   <strong>Condition:</strong>
-  <%= @listing.condition %>
+  <%= format_condition(@listing.condition) %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @listing.price %>
+  <%= number_to_currency(@listing.price) %>
 </p>
 
 <p>
-  <strong>Sold:</strong>
-  <%= @listing.sold %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @listing.user_id %>
+  <strong>Seller:</strong>
+  <%= @listing.user.username %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @listing.category_id %>
+  <%= @listing.category.name %>
 </p>
 
 <div>
