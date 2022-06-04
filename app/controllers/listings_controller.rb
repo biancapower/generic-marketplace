@@ -68,6 +68,8 @@ class ListingsController < ApplicationController
       seller_id: @listing.user_id,
       buyer_id: current_user.id
     )
+
+    redirect_to order_success_url
   end
 
   private
