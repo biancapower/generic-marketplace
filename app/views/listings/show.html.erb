@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<% if current_user && !@listing.sold %>
+<% if @listing.sold %>
+  <p>NOT FOR SALE</p>
+<% elsif current_user && current_user.id == @listing.user_id  %>
+  <p>You own this item</p>
+<% elsif current_user %>
   <%= button_to "Buy me!", place_order_path %>
 <% else %>
-  <p>NOT FOR SALE</p>
+  <p>Please log in to purchase item</p>
 <% end %>
 
 <p>
