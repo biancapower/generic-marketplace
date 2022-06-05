@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome <%= current_user ? current_user.username : "friend" %>!</h1>
+
+<h2>
+	<% if user_signed_in? %>
+		<% if current_user.bought_orders.count > 0 %>
+			You recently purchased <%= current_user.bought_orders.last.listing.title %>
+			and <%= link_to "#{current_user.bought_orders.count - 1} other items", orders_bought_path %>.
+		<% else %>
+			You haven't purchased any items yet.
+		<% end %>
+	<% else %>
+		You might like to <%= link_to "browse our listings", listings_path %>,
+		or <%= link_to "sign up", new_user_registration_path %> to make a new listing.
+	<% end %>
+</h2>
