@@ -71,7 +71,7 @@ class ListingsController < ApplicationController
 
     @listing.update(sold: true)
 
-    redirect_to order_success_url
+    redirect_to orders_success_path
   end
 
   private

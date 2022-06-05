@@ -2,11 +2,10 @@ Rails.application.routes.draw do
   get 'orders/success'
   get 'orders/bought'
   get 'orders/sold'
+
   resources :listings
 
   post "listings/:id/order", to: "listings#place_order", as: "place_order"
-
-  get 'pages/success', to: "pages#success", as: "order_success"
 
   devise_for :users
   root 'pages#home'
