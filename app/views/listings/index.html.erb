@@ -7,11 +7,11 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Condition</th>
-      <th>Price</th>
-      <th>Status</th>
-      <th>Seller</th>
-      <th>Category</th>
+      <th><%= link_to "Condition", sort: :condition %></th>
+      <th><%= link_to "Price", sort: :price %></th>
+      <th><%= link_to "Status", sort: :sold %></th>
+      <th><%= link_to "Seller", sort: :user %></th>
+      <th><%= link_to "Category", sort: :category_id %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
