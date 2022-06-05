@@ -7,7 +7,20 @@ class ListingsController < ApplicationController
 
   # GET /listings or /listings.json
   def index
-    @listings = Listing.order(params[:sort])
+    case params[:condition]
+    when "well_used"
+      listings = Listing.well_used
+    when "barely_used"
+      listings = Listing.barely_used
+    when "almost_new"
+      listings = Listing.almost_new
+    when "brand_new"
+      listings = Listing.brand_new
+    else
+      listings = Listing.all
+    end  
+
+    @listings = listings.order(params[:sort])
   end
 
   def search
