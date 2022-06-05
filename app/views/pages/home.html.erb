@@ -1,6 +1,6 @@
 <h1>Welcome <%= current_user ? current_user.username : "friend" %>!</h1>
 
-<h2>
+<h4>
 	<% if user_signed_in? %>
 		<% if current_user.bought_orders.count > 0 %>
 			You recently purchased <%= current_user.bought_orders.last.listing.title %>
@@ -12,4 +12,21 @@
 		You might like to <%= link_to "browse our listings", listings_path %>,
 		or <%= link_to "sign up", new_user_registration_path %> to make a new listing.
 	<% end %>
-</h2>
+</h4>
+
+<h2>Browse Listings</h2>
+
+<div class="container">
+  <% Listing.all.in_groups_of(2, false).each do |listings| %>
+  <div class="row">
+    <% listings.each do |listing| %>
+      <div class="one-half column card">
+        <h5><%= listing.title %></h5>
+        <p><%= listing.description %></p>
+        <p><%= number_to_currency(listing.price) %></p>
+        <%= link_to 'Show', listing %>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
