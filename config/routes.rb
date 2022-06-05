@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'orders/bought'
   get 'orders/sold'
 
+  get 'listings/search', "listings#search"
+
   resources :listings
 
   post "listings/:id/order", to: "listings#place_order", as: "place_order"

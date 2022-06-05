@@ -10,6 +10,15 @@ class ListingsController < ApplicationController
     @listings = Listing.order(params[:sort])
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to listings_path and return
+    else
+      @query = params[:search].downcase
+      @search_results = Listing.all.where("lower(title) LIKE :search", search: "%#{@query}%")
+    end
+  end
+
   # GET /listings/1 or /listings/1.json
   def show
   end

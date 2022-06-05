@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listings that match your search:</h1>
+
+<% @search_results.each do |result| %>
+  <p><%= link_to result.title, result %></p>
+<% end %>
