@@ -1,24 +1,28 @@
-# README
+# Generic Marketplace
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app has been deployed on Fly.io at [https://generic-marketplace.fly.dev](https://generic-marketplace.fly.dev).
 
-Things you may want to cover:
+## Overview
 
-* Ruby version
+This is a generic marketplace app that allows users to create listings, view listings, and purchase listings. It is built with Ruby on Rails.
 
-* System dependencies
+## User Flow
 
-* Configuration
+![User Flow](./docs/generic-marketplace-overview.gif)
 
-* Database creation
+## Running Locally
 
-* Database initialization
+The following are requirements in order to run this app locally:
+- Ruby version 2.7.5
+- Node version 16.16.0
+- Rails version 6.1.6
+- PostgreSQL
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Once the above have been installed / set up:
+1. clone this repo to your machine
+1. `cd` into the application folder
+1. `bundle install`
+1. `yarn install`
+1. `rails db:create`
+1. `rails db:migrate`
+1. `rails s` to start the rails server
